@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourie Adventure | Elite Climbing Coaching Singapore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #00d2ff;
+            --primary-green: #b5e61d;
+            --dark-navy: #1a3a5a;
+            --white: #ffffff;
+            --light-bg: #f4f7f9;
+            --text: #333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text); background: var(--white); scroll-behavior: smooth; }
+        h1, h2, h3, h4 { font-family: 'Bebas Neue', cursive; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Navigation */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: var(--white); position: sticky; top: 0; 
+            z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .logo { height: 70px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--dark-navy); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary-blue); }
+
+        /* Hero Section */
+        .hero { 
+            height: 60vh; background: linear-gradient(rgba(26, 58, 90, 0.8), rgba(26, 58, 90, 0.8)), url('https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 20px;
+        }
+        .hero h1 { font-size: 5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; max-width: 800px; }
+
+        /* Section Styling */
+        section { padding: 80px 10%; }
+        .section-title { font-size: 3rem; color: var(--dark-navy); margin-bottom: 40px; border-bottom: 4px solid var(--primary-green); display: inline-block; }
+        .instructor-img { width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+
+        /* Links */
+        .who-links a { color: var(--dark-navy); text-decoration: underline; font-weight: 600; transition: color 0.3s; }
+        .who-links a:hover { color: var(--primary-blue); }
+
+        /* Accordion / Collapsible Styling */
+        details { background: var(--light-bg); margin-bottom: 15px; border-radius: 8px; overflow: hidden; border-left: 6px solid var(--primary-blue); transition: 0.3s; }
+        details[open] { border-left-color: var(--primary-green); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        summary { padding: 20px; font-family: 'Bebas Neue'; font-size: 1.5rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '+'; font-size: 1.8rem; color: var(--primary-blue); }
+        details[open] summary::after { content: '-'; }
+        .details-content { padding: 0 20px 20px 20px; }
+        .details-content ul { list-style: none; }
+        .details-content li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .details-content li::before { content: '•'; color: var(--primary-blue); position: absolute; left: 0; font-weight: bold; }
+
+        /* Professional Services Grid */
+        .pro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .pro-category { background: var(--dark-navy); padding: 30px; border-radius: 8px; color: white; }
+        .pro-category h3 { color: var(--primary-green); margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .pro-category details { border-left: 3px solid var(--primary-green); background: rgba(255,255,255,0.05); }
+        .pro-category summary { font-size: 1.2rem; padding: 15px; }
+
+        /* Images */
+        .action-img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+
+        footer { background: #111; color: white; padding: 60px 10%; text-align: center; }
+
+        @media (max-width: 768px) {
+            .who-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+            nav { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <img src="FAlogofinal.png" alt="Fourie Adventure Logo" class="logo">
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#who">Who Are We</a></li>
+        <li><a href="#roped">Roped Climbing</a></li>
+        <li><a href="#boulder">Bouldering</a></li>
+        <li><a href="#pro">Professional Services</a></li>
+        <li><a href="#test">Testimonials</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+
+        
+    </ul>
+</nav>
+
+<section class="hero" id="home">
+    <h1>Fourie Adventure</h1>
+    <p>Professional Climbing Education & Safety Management Singapore</p>
+</section>
+
+<section id="who">
+    <h2 class="section-title">Meet Your Lead Instructor</h2>
+    <div class="who-grid">
+        <div>
+            <img src="lin.png" alt="Lead Instructor Portrait" class="instructor-img">
+        </div>
+        <div class="who-links">
+            <h3>Credentials</h3>
+            <ul style="list-style: none; margin-bottom: 30px;">
+                <li>• <a href="https://smf-climbing.org/standards/view.html?id=uC0%3D&title=Sport+Climbing+Instructor+Cat-1" target="_blank">SSCMF Cat1 Climbing Instructor</a></li>
+                <li>• <a href="https://coachsg.sportsingapore.gov.sg/nroc" target="_blank">NROC Registered Coach</a></li>
+                <li>• <a href="https://www.bmsgroup.com.sg/" target="_blank">PPE Inspector</a></li>
+                <li>• <a href="https://www.moe.gov.sg/" target="_blank">MOE IRS Registered</a></li>
+                <li>• <a href="https://smf-climbing.org/standard-category/view.html?id=uA%3D%3D" target="_blank">SSCMF Abseiling Instructor</a></li>
+            </ul>
+            
+            <h3>Up-to-date Safety Clearances</h3>
+            <ul style="list-style: none; margin-bottom: 30px; opacity: 0.8;">
+                <li>• Standard First Aid, CPR, and AED Provider</li>
+                <li>• Safeguarding (TTS:2025;UWC Dover:2026)</li>
+                <li>• Avvanz Background Check (2026)</li>
+            </ul>
+
+            <h3>The Founder’s Legacy</h3>
+            <p><b>Fourie Adventure</b> is dedicated to elevating climbing in Singapore through expert coaching, safety, and community development. We partner with schools to inspire young climbers and their families, fostering resilience, confidence, and a lifelong love for the sport of Climbing.<br>
+<br>
+Beyond Climbing Coaching, we provide comprehensive support services to ensure safe and sustainable climbing programs:<br>
+<br>
+
+            <ul style="list-style: none; margin-bottom: 30px;">
+                <li>Development of Climbing Standard Operating Pocedures(SOP) tailored for schools</li>
+ 		<li>Development of Climbing Risk Assessment tailored for schools</li>
+                <li>Personal Protective Equipment (PPE) Inspection</li>
+                <li>Climbing wall route setting</li>
+                <li>Climbing Wall inspection and maintenance</li>
+<br>
+<b>Climbing Community Milestones:</b> <br>
+Establishing an ACSIS-equivalent competitive pathway that offers Singapore International School students the opportunity to meet, connect and compete in Climbing.</li>
+            </ul>
+    <p style="margin-top:15px;">
+                Founder of  <strong>International School Climbing League (ISCL)</strong> for G5-12/Yr7-13) – Est. 2022.<br>
+                Founder of <strong>International School Climbing Fiesta (ISCF)</strong> for G3-4/Yr5-6) – Est. 2024.<br>
+            </p>
+<br>
+<p>At Fourie Adventure, our mission is to combine technical excellence with a passion for climbing, to inspire confident, resilient, and aspiring leaders. Through a culture of respect, openness, and diversity, we foster a strong and inclusive climbing community where every climber can grow and reach new heights.</p>
+
+        </div>
+    </div>
+</section>
+
+<section id="roped">
+    <h2 class="section-title">Roped Climbing </h2>
+    <img src="roped.png?auto=format&fit=crop&q=80&w=1200" alt="Roped Climbing Action" class="action-img">
+  <details>
+    <summary>Level 1 – New Climber</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Complete beginners in roped climbing.</p>
+            <ul>
+                <li>Climb safely under supervision.</li>
+                <li>Gain familiarity in vertical movement and body positioning.</li>
+		<li>Experience top rope climbing through friendly fun games.</li>
+		<li>Support climbers to face initial fears of height and movement, and celebrate small victories with positive reinforcement.</li>
+
+
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 2 – Foundation Climber</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Harness safety and basic Knot tying.</p>
+            <ul>
+                <li>Learn to put on a harness correctly and tie a simple figure-of-eight knot.</li>
+                <li>Introduction to basic climbing terminology, basic climbing techniques and grading systems.</li>
+		<li>Reinforce skills through climbing games and challenges. </li>
+		<li>Build confidence and resilence through safe practice. </li>
+
+
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 3 – Development Climber</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Movement precision and belaying skills.</p>
+            <ul>
+                <li>Improve footwork & Body Positioning.</li>
+                <li>5 step belaying and Pre climb buddy checks.</li>
+ 		<li>Clear communication between climber and belayer.</li>
+ 		<li>Building trust and responsibility through teamwork.</li>
+
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 4 – Advanced Climber</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Introduce Lead climbing and risk management.</p>
+
+            <ul>
+       <li>Practice route reading, incorporate strength training and competition awareness.</li>
+       <li>Introduce lead climbing (13+), long tail lead (under 13).</li>
+       <li>Rope handling and risk management skills.</li>
+       <li>Raise risk awareness and instil discipline, responsibility and accountability.</li>
+
+
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 5 – Performance Climber</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Performance training and national competitive standards.</p>
+            <ul>
+         <li>Mastering advanced techniques and competing at ISCL.</li>
+ 	 <li>Mental skill training, tactical preparation as well as rest and recovery strategies.</li>
+ 	 <li>Pathway to multi-pitch and national league.</li>
+         <li>Cultivate perseverance under pressure, self realization and a pursuit of excellence.</li>
+            </ul>
+        </div>
+    </details>
+</section>
+
+<section id="boulder" style="background: var(--light-bg);">
+    <h2 class="section-title">Bouldering</h2>
+    <img src="boulder.png?auto=format&fit=crop&q=80&w=1200" alt="Bouldering Action" class="action-img">
+    
+    <details>
+        <summary>Level 1 – New Boulderer</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Introduction to beginner bouldering.</p>
+            <ul>
+                <li>Learn safe use of the bouldering wall.</li>
+                <li>Practice traversal and balance on the wall.</li>
+                <li>Explore short and low bouldering routes.</li>
+		<li>Promote enjoyment, curiosity, and confidence through fun games.</li>
+
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 2 – Foundation Boulderer</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Basic bouldering technique and route awareness.</p>
+            <ul>
+                <li>Learn basic bouldering terminology, basic bouldering techniques and grading systems.</li>
+                <li>Learn safe falling techniques and safe behaviour on the wall.</li>
+                <li>Build foundational bouldering skills and route recognition.</li>
+ 		<li>Encourage responsibility, awareness, and confidence through safe practice.</li>
+
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 3 – Development Boulderer</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> More challenging routes and deeper understanding of bouldering techniques.</p>
+            <ul>
+                <li>Learn spotting techniques and bouldering equipment. </li>
+		<li>Knowledge of hold shapes and directional pulling.</li>
+                <li>Refine footwork, body positioning and greater bouldering efficiency.</li>
+ 		<li>Build problem solving skills, responsibility and adaptability through challenge and progression.</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 4 – Advanced Boulderer</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Competition awareness and risk management.</p>
+            <ul>
+                <li>SMART goals and understand bouldering competition rules.</li>
+                <li>Practice route reading, endurance, and strength conditioning.</li>
+                <li>Develop dynamic movements and advanced bouldering skills.</li>
+		<li>Instills discipline, integrity, and resilience through goal setting, fair play, and advanced skill development.</li>
+
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Level 5 – Performance Boulderer</summary>
+        <div class="details-content">
+            <p><strong>Focus:</strong> Performance training and national competitive standards.</p>
+            <ul>
+                <li>Mastering advanced techniques and execute dynamic power movements.</li>
+                <li>Competing at Pro-League and national level.</li>
+                <li>Mental skill training, tactical preparation as well as rest and recovery strategies.</li>
+		<li>Cultivate perseverance under pressure, self realization and a pursuit of excellence.</li>
+
+            </ul>
+        </div>
+    </details>
+</section>
+
+
+
+<section id="pro" style="background: var(--dark-navy); color: white;">
+    <h2 class="section-title" style="color: white;">Professional Services</h2>
+    <img src="ppe.png?auto=format&fit=crop&q=80&w=1200" alt="Technical Services" class="action-img">
+    <div class="pro-grid">
+        
+        <div class="pro-category">
+            <h3>Technical Services</h3>
+            <details>
+                <summary>PPE Inspection</summary>
+                <div class="details-content">Annual thorough examination of Personal Protective Equipment (Harnesses, ropes, hardware) with full documentation and compliance logs.</div>
+            </details>
+            <details>
+                <summary>Route Setting</summary>
+                <div class="details-content">Professional route setting for all levels, including competition-standard boulders and top rope routes.</div>
+            </details>
+            <details>
+                <summary>Safety Inspections</summary>
+                <div class="details-content">Annual Wall Safety Inspections and Wall Maintenance to ensure facility compliance.</div>
+            </details>
+        </div>
+
+        <div class="pro-category">
+            <h3>Staff & Certification</h3>
+            <details>
+                <summary>SNCS Level 1 & 2</summary>
+                <div class="details-content">Certification courses for staff and students (13+) following Singapore National Climbing Standards.</div>
+            </details>
+            <details>
+		<summary>SNAS Level 1 & 2</summary>
+                <div class="details-content">Certification courses for staff and students (13+) following Singapore National Abseiling Standards.</div>
+            </details>
+            <details>
+                <summary>Refresher Training</summary>
+                <div class="details-content">Annual staff safety refreshers and technical skill updates.</div>
+            </details>
+            <details>
+      		<summary>Team building workshop</summary>
+                <div class="details-content">Corporate staff team building climbing workshop.</div>
+		<div class="details-content">Community parents social climbing sessions.</div>
+            </details>
+           </div>
+
+        <div class="pro-category">
+            <h3>Operations</h3>
+            <details><summary>SOP Development</summary><div class="details-content">Bespoke Climbing Standard Operating Procedures.</div></details>
+            <details><summary>Risk Assessment</summary><div class="details-content">Comprehensive RA for educational environments.</div></details>
+        </div>
+
+    </div>
+</section>
+
+    
+    
+    <section style="background: #fff;" id="test">
+    <h2 class="section-title">Testimonials</h2>
+    <div class="testimonial-container">
+        
+        <div class="testimonial-card">
+            <img src="dave.png" alt="David Fourie" class="testimonial-img" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover;>
+            <div class="testimonial-content">
+                <i><p class="testimonial-text">"Lin has been the driving force behind our climbing programme, growing it into a professional and safe sport that thousands of our students now enjoy. Thanks to her expertise and strict adherence to safety standards, we have been able to confidently expand climbing opportunities across all levels of our curriculum."</p></i>
+                
+ <span class="testimonial-name" style="display: block; text-align: right;">
+            <b>David Fourie</b>
+            </div>
+        </div>
+<br>
+        <div class="testimonial-card">
+            <img src="aston.png" alt="Aston Wilmott" class="testimonial-img"  style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover;>
+            <div class="testimonial-content">
+                <i><p class="testimonial-text">"Parent of Aston: Aston has been selected for the Australian Climbing Team and will compete at the IFSC World Youth Championships in Helsinki during the upcoming summer break. He has also been accepted into the AIS (Australian Institute of Sport) Gen32 programme, a key pathway towards the 2032 Olympic Games.Aston’s early experiences with the climbing team ignited his passion for competition climbing. We’re especially grateful to Lin at FourieAdventure, whose energy, mentorship, and unwavering support significantly contributed to cultivating his love for the sport.We’re excited about what lies ahead and deeply appreciate the climbing community that has helped shape this journey."</p></i>
+                <span class="testimonial-name" style="display: block; text-align: right;">
+            <b>Aston Wilmott</b>
+            </div>
+        </div>
+
+        
+<div class="testimonial-card">
+            <img src="Rachel Mclean.png" alt="Rachel Mclean" class="testimonial-img" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover;>
+            <div class="testimonial-content">
+               <i> <p class="testimonial-text">"I took my SNCS level 1 & 2 Climbing  certification with Lin.She always made me feel safe and confident. She is incredibly knowledgeable, calm and encouraging. Her experience and clear communication create a supportive environment where you feel comfortable to progress your skills and ready to try them in the gym independently."</p></i>
+               
+ <span class="testimonial-name" style="display: block; text-align: right;">
+            <b>Rachel Mclean</b>
+
+            </div>
+        </div>
+
+    </div>
+<br>
+</section>
+    
+
+    
+<section id="contact" style="background: var(--light-bg);" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+       
+        <form action="https://formspree.io/f/mrejarry" method="POST">
+           
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; font-family: 'Bebas Neue'; font-size: 1.2rem; margin-bottom: 5px;">Email Address</label>
+                <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: 'Open Sans';">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; font-family: 'Bebas Neue'; font-size: 1.2rem; margin-bottom: 5px;">Subject</label>
+                <input type="text" name="subject" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: 'Open Sans';">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; font-family: 'Bebas Neue'; font-size: 1.2rem; margin-bottom: 5px;">Message</label>
+                <textarea name="message" rows="5" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: 'Open Sans';"></textarea>
+            </div>
+
+            <button type="submit" style="background: var(--dark-navy); color: white; border: none; padding: 15px 30px; font-family: 'Bebas Neue'; font-size: 1.4rem; cursor: pointer; border-radius: 6px; width: 100%; transition: 0.3s;">
+                Send Message
+            </button>
+           
+        </form>
+    </div>
+</section>   
+
+ 
+    
+    
+    
+<footer>
+    <p><strong>FOURIE ADVENTURE</strong></p>
+    <p>fourieadventure@gmail.com </p>
+    <p style="opacity:0.5; margin-top: 20px; font-size: 0.8rem;">&copy; 2026 Fourie Adventure Singapore. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
