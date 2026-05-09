@@ -75,17 +75,84 @@
 
         footer { background: #111; color: white; padding: 60px 10%; text-align: center; }
 
-        @media (max-width: 768px) {
-            .who-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3rem; }
-            nav { flex-direction: column; gap: 15px; }
-        }
+/* --- Hamburger Icon Styling --- */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2000;
+    padding: 10px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--dark-navy);
+    transition: 0.3s;
+}
+
+/* --- Mobile Responsive Rules --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; } /* Show burger on mobile */
+
+    .nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: var(--dark-navy); /* Dark background for mobile menu */
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: 1500;
+    }
+
+    /* When menu is open */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        color: white !important;
+        font-size: 1.8rem;
+        font-family: 'Bebas Neue', cursive;
+    }
+
+    /* Change burger color to white when menu is open */
+    .nav-links.active ~ .menu-toggle span {
+        background: white;
+    }
+
+    /* Fix other sections for mobile */
+    .who-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+    .hero p { font-size: 1.2rem; }
+    section { padding: 50px 5%; }
+    .section-title { font-size: 2.2rem; }
+}
+
+
     </style>
 </head>
 <body>
 
 <nav>
     <img src="FAlogofinal.png" alt="Fourie Adventure Logo" class="logo">
+    
+    <!-- THE HAMBURGER BUTTON -->
+    <button class="menu-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
     <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#who">Who Are We</a></li>
@@ -94,8 +161,6 @@
         <li><a href="#pro">Professional Services</a></li>
         <li><a href="#test">Testimonials</a></li>
         <li><a href="#contact">Contact Us</a></li>
-
-        
     </ul>
 </nav>
 
@@ -365,7 +430,7 @@ Establishing an ACSIS-equivalent competitive pathway that offers Singapore Inter
     <div class="testimonial-container">
         
         <div class="testimonial-card">
-            <img src="dave.png" alt="David Fourie" class="testimonial-img" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover;>
+            <img src="dave.png" alt="David Fourie" class="testimonial-img" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover;">
             <div class="testimonial-content">
                 <i><p class="testimonial-text">"Lin has been the driving force behind our climbing programme, growing it into a professional and safe sport that thousands of our students now enjoy. Thanks to her expertise and strict adherence to safety standards, we have been able to confidently expand climbing opportunities across all levels of our curriculum."</p></i>
                 
@@ -439,6 +504,23 @@ Establishing an ACSIS-equivalent competitive pathway that offers Singapore Inter
     <p>info@fourieadventure.com </p>
     <p style="opacity:0.5; margin-top: 20px; font-size: 0.8rem;">&copy; 2026 Fourie Adventure Singapore. All rights reserved.</p>
 </footer>
+
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Toggle menu open/close
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked (so it doesn't stay open)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
